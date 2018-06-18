@@ -8,11 +8,9 @@
             name="viewModel"
             type="com.abhishek.tracker.ui.TrackerListViewModel" />
     </data>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FEEEEEE"
         tools:context="com.founderscafe.android.sva.ui.visitor.visit.VisitFragment">
 
         <ProgressBar
@@ -21,9 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             tools:visibility="visible"
-            app:isVisible="@{viewModel.progressVisibility}"
-            app:indicatorColor="@color/primary_start_color"
-            app:indicatorName="BallScaleMultipleIndicator" />
+            app:isVisible="@{viewModel.progressVisibility}" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
