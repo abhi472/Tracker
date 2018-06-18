@@ -16,6 +16,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    defaultConfig {
+        buildConfigField("int", "DB_SCHEMA_VERSION", DB_SCHEMA_VERSION)
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -39,4 +42,11 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
     kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
     kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+
+    //Room
+    implementation "android.arch.persistence.room:runtime:$ROOM_VERSION"
+    kapt "android.arch.persistence.room:compiler:$ROOM_VERSION"
+
+    //Rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
 }
