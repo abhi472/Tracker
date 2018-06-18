@@ -12,7 +12,8 @@ import javax.inject.Singleton
         modules = [
             AndroidSupportInjectionModule::class,
             ActivityBuilder::class,
-            ServiceBuilder::class
+            ServiceBuilder::class,
+            AppModule::class
         ])
 interface AppComponent : AndroidInjector<TrackerApp> {
 
@@ -21,7 +22,9 @@ interface AppComponent : AndroidInjector<TrackerApp> {
         @BindsInstance
         fun application(application: TrackerApp): Builder
 
-        fun  build(): AppComponent
+        fun database(database: DatabaseModule): Builder
+
+        fun build(): AppComponent
     }
 
     override fun inject(instance: TrackerApp)
