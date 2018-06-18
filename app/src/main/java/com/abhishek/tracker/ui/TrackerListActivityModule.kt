@@ -1,8 +1,13 @@
 package com.abhishek.tracker.ui
 
 import dagger.Module
+import dagger.Provides
 
 @Module
-internal abstract class TrackerListActivityModule {
+class TrackerListActivityModule {
+
+    @Provides
+    fun provideInviteAdapter(context: TrackerListActivity): TrackListAdapter
+            = TrackListAdapter(context)
 
 }

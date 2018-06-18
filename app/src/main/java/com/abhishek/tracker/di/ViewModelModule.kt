@@ -2,6 +2,7 @@ package com.abhishek.tracker.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
+import com.abhishek.tracker.ui.TrackListAdapterViewModel
 import com.abhishek.tracker.ui.TrackerListViewModel
 import dagger.Binds
 import dagger.Module
@@ -14,10 +15,15 @@ interface ViewModelModule {
     @Binds
     fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
-        @Binds
+    @Binds
     @IntoMap
     @ViewModelKey(TrackerListViewModel::class)
-    fun bindQRViewModel(viewModel: TrackerListViewModel): ViewModel
+    fun bindTrackerListViewModel(viewModel: TrackerListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(TrackListAdapterViewModel::class)
+    fun bindTrackListAdapterViewModel(viewModel: TrackListAdapterViewModel): ViewModel
 
 
 
