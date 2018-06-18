@@ -1,6 +1,6 @@
 package com.abhishek.tracker.di
 
-import com.abhishek.tracker.TrackerService
+import com.abhishek.tracker.service.TrackerService
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

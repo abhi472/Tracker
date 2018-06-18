@@ -1,7 +1,7 @@
 package com.abhishek.tracker.di
 
-import com.abhishek.tracker.TrackerListActivity
-import com.abhishek.tracker.TrackerListActivityModule
+import com.abhishek.tracker.ui.TrackerListActivity
+import com.abhishek.tracker.ui.TrackerListActivityModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

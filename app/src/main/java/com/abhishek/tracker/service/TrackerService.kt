@@ -1,4 +1,4 @@
-package com.abhishek.tracker
+package com.abhishek.tracker.service
 
 import android.content.Intent
 import android.os.IBinder

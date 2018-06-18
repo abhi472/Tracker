@@ -1,4 +1,4 @@
-package com.abhishek.tracker
+package com.abhishek.tracker.ui
 
 import dagger.Module
 

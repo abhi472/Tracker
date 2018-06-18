@@ -1,8 +1,10 @@
-package com.abhishek.tracker
+package com.abhishek.tracker.ui
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.abhishek.tracker.R
+import com.abhishek.tracker.service.TrackerService
 
 class TrackerListActivity : AppCompatActivity() {
 

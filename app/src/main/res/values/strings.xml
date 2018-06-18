@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tracker</string>
+    <string name="error">some error occured</string>
 </resources>
