@@ -1,17 +1,15 @@
 package com.abhishek.tracker
 
-import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
+import dagger.android.DaggerService
 
 
-
-
-class TrackerService : Service() {
+class TrackerService : DaggerService() {
 
     override fun onBind(intent: Intent): IBinder? {
         return null
