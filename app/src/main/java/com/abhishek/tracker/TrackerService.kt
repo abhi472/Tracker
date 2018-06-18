@@ -6,10 +6,15 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
+import com.abhishek.tracker.repository.Event
 import dagger.android.DaggerService
+import javax.inject.Inject
 
 
 class TrackerService : DaggerService() {
+
+    @Inject
+    lateinit var eventRepository: Event
 
     override fun onBind(intent: Intent): IBinder? {
         return null

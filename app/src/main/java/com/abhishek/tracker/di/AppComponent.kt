@@ -24,6 +24,7 @@ interface AppComponent : AndroidInjector<TrackerApp> {
 
         fun database(database: DatabaseModule): Builder
 
+
         fun build(): AppComponent
     }
 
