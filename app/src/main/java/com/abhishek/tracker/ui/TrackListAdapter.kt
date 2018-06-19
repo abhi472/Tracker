@@ -34,7 +34,7 @@ class TrackListAdapter @Inject constructor(var context: Context) : RecyclerView.
     override fun onBindViewHolder(holder: ViewHolder,
                                   position: Int) {
         val vm = TrackListAdapterViewModel()
-        vm.setVal(list?.get(position))
+        vm.setVal(list?.get(position), position)
         holder.setViewModel(vm)
 
     }

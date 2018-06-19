@@ -11,6 +11,6 @@ interface EventDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(event: EventEntity): Long
 
-    @Query("SELECT * FROM event")
+    @Query("SELECT * FROM event ORDER BY time DESC")
     fun get(): LiveData<List<EventEntity>>
 }

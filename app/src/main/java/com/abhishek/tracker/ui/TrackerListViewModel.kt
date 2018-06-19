@@ -26,9 +26,11 @@ class TrackerListViewModel @Inject constructor(eventRepository: Event) : ViewMod
     fun updateVisibility() {
         if(liveData.value?.isNotEmpty()!!) {
             progressVisibility.set(false)
+            errorVisibility.set(false)
             listVisibility.set(true)
         } else {
             progressVisibility.set(false)
+            listVisibility.set(false)
             errorVisibility.set(true)
         }
     }
