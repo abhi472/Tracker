@@ -6,13 +6,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.abhishek.tracker.R
+import com.abhishek.tracker.data.EventEntity
 import com.abhishek.tracker.databinding.EventCardBinding
 import com.abhishek.tracker.repository.Event
 import javax.inject.Inject
 
 class TrackListAdapter @Inject constructor(var context: Context) : RecyclerView.Adapter<TrackListAdapter.ViewHolder>(){
 
-    var list: ArrayList<Event>? = ArrayList()
+    var list: List<EventEntity>? = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
@@ -26,7 +27,7 @@ class TrackListAdapter @Inject constructor(var context: Context) : RecyclerView.
         return list?.size ?:0
     }
 
-    fun setItem(list:ArrayList<Event>) {
+    fun setItem(list:List<EventEntity>?) {
         this.list = list
         notifyDataSetChanged()
     }

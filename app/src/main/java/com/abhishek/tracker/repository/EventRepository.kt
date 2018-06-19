@@ -1,5 +1,6 @@
 package com.abhishek.tracker.repository
 
+import android.arch.lifecycle.LiveData
 import com.abhishek.tracker.data.EventDao
 import com.abhishek.tracker.data.EventEntity
 import com.abhishek.tracker.data.TrackerDatabase
@@ -16,6 +17,6 @@ class EventRepository @Inject constructor(private val database: TrackerDatabase,
                 it.onComplete()
             })
 
-    override fun get(): Single<EventEntity> = dao.get()
+    override fun get(): LiveData<List<EventEntity>> = dao.get()
 
 }

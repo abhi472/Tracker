@@ -1,5 +1,6 @@
 package com.abhishek.tracker.data
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
@@ -12,5 +13,5 @@ interface EventDao {
     fun save(event: EventEntity): Long
 
     @Query("SELECT * FROM event")
-    fun get(): Single<EventEntity>
+    fun get(): LiveData<List<EventEntity>>
 }

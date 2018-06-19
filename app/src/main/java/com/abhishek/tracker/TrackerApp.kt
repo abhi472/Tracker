@@ -13,6 +13,7 @@ open class TrackerApp: DaggerApplication() {
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> = androidInjector
 
     override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base)
         androidInjector =DaggerAppComponent
                 .builder()
                 .application(this)

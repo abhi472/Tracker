@@ -3,5 +3,5 @@ package com.abhishek.tracker.di
 import dagger.Module
 
 @Module(includes = [DatabaseModule::class, RepositoryModule::class, ViewModelModule::class])
-class AppModule {
+internal class AppModule {
 }

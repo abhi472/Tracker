@@ -8,13 +8,6 @@ import android.view.View
 import android.widget.TextView
 
 
-
-@BindingAdapter("backgroundDrawable")
-fun setBackgroundDrawable(view: View, @DrawableRes resId: Int) {
-    view.background = ContextCompat.getDrawable(view.context, resId)
-}
-
-
 @BindingAdapter("isVisible")
 fun setIsVisible(view: View, isVisible: Boolean) {
     if (isVisible) {
@@ -25,9 +18,11 @@ fun setIsVisible(view: View, isVisible: Boolean) {
 }
 
 @BindingAdapter("app:errorAssets")
-fun onErrorText(view: TextView, assets: Pair<Int, Int>) {
-    view.text = view.context.getText(assets.first)
-    view.setCompoundDrawablesWithIntrinsicBounds(0,
-            assets.second, 0, 0)
+fun onErrorText(view: TextView, assets: Pair<Int, Int>?) {
+    if(assets != null) {
+        view.text = view.context.getText(assets.first)
+        view.setCompoundDrawablesWithIntrinsicBounds(0,
+                assets.second, 0, 0)
+    }
 }
 

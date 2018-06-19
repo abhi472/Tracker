@@ -1,10 +1,12 @@
 package com.abhishek.tracker.ui
 
 import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import com.abhishek.tracker.R
+import com.abhishek.tracker.data.EventEntity
 import com.abhishek.tracker.repository.Event
 import javax.inject.Inject
 
@@ -18,5 +20,6 @@ class TrackerListViewModel @Inject constructor(eventRepository: Event): ViewMode
     var errorVisibility: ObservableBoolean? = ObservableBoolean(false)
     var errorAssets: ObservableField<Pair<Int, Int>> = ObservableField(emptyListPair)
     val listVisibility: ObservableBoolean = ObservableBoolean(false)
-
+    val liveData: LiveData<List<EventEntity>> by lazy {
+        eventRepository.get() }
 }

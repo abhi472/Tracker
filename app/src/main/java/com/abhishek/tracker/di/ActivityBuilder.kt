@@ -8,6 +8,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 internal abstract class ActivityBuilder {
 
-    @ContributesAndroidInjector(modules = [TrackerListActivityModule::class])
+    @ContributesAndroidInjector(modules = [(TrackerListActivityModule::class)])
     internal abstract fun contributeTrackerListInjector(): TrackerListActivity
 }
