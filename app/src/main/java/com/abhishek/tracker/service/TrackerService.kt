@@ -38,8 +38,7 @@ class TrackerService : DaggerService() {
     override fun onCreate() {
 
         super.onCreate()
-
-       registerBroadcastReceiver()
+        registerBroadcastReceiver()
     }
 
     override fun onDestroy() {
@@ -60,7 +59,10 @@ class TrackerService : DaggerService() {
                 val strAction = intent.action
 
                 val myKM = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-                if (strAction == Intent.ACTION_USER_PRESENT || strAction == Intent.ACTION_SCREEN_OFF || strAction == Intent.ACTION_SCREEN_ON)
+                if (strAction == Intent.ACTION_USER_PRESENT
+                        || strAction == Intent.ACTION_SCREEN_OFF
+                        || strAction == Intent.ACTION_SCREEN_ON)
+
                     if (myKM.inKeyguardRestrictedInputMode()) {
                         val eventEntity = EventEntity(count, "Locked", Date().time)
                         disposable.add(eventRepository
@@ -68,14 +70,11 @@ class TrackerService : DaggerService() {
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                   Log.d("check", "success")
                                     count++
                                 },{
-                                    Log.d("check", "fail")
 
                                 }))
                     } else {
-                        println("Screen off " + "UNLOCKED")
                     }
 
             }

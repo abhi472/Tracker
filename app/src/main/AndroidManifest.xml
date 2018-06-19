@@ -21,7 +21,7 @@
         <service
             android:name=".service.TrackerService"
             android:enabled="true"
-            android:exported="true"></service>
+            />
     </application>
 
 </manifest>
