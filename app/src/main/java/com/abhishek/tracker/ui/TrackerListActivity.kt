@@ -37,27 +37,9 @@ class TrackerListActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(!isMyServiceRunning(TrackerService::class.java)) {
         val intent = Intent(this, TrackerService::class.java)
         startService(intent)
-            println("service is off")
-
-        } else {
-            println("service is on")
-        }
         setup()
-    }
-
-    private fun isMyServiceRunning(serviceClass: Class<*>): Boolean {
-        val manager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        for (service in manager.getRunningServices(Integer.MAX_VALUE)) {
-            if (serviceClass.name == service.service.className) {
-                Log.i("isMyServiceRunning?", true.toString() + "")
-                return true
-            }
-        }
-        Log.i("isMyServiceRunning?", false.toString() + "")
-        return false
     }
 
     private fun setup() {

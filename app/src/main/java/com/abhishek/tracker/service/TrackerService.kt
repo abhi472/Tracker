@@ -28,7 +28,6 @@ class TrackerService : DaggerService() {
     val disposable = CompositeDisposable()
 
 
-
     override fun onBind(intent: Intent): IBinder? {
         return null
     }
@@ -59,29 +58,42 @@ class TrackerService : DaggerService() {
         val screenOnOffReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context, intent: Intent) {
                 val strAction = intent.action
+                var count: Int = sharedPrefRepository.getLastCount()
+                var eventEntity: EventEntity? = null
 
                 val myKM = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
                 if (strAction == Intent.ACTION_USER_PRESENT
-                        || strAction == Intent.ACTION_SCREEN_OFF
-                        || strAction == Intent.ACTION_SCREEN_ON)
+                        || strAction == Intent.ACTION_SCREEN_OFF) {
+                    eventEntity = if (myKM.inKeyguardRestrictedInputMode()) {
+                        EventEntity(count, "Locked and Screen off", Date().time)
 
-                    if (myKM.inKeyguardRestrictedInputMode()) {
-                        var count: Int = sharedPrefRepository.getLastCount()
-                        val eventEntity = EventEntity(count, "Locked", Date().time)
-                        disposable.add(eventRepository
-                                .save(eventEntity)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe({
-                                    sharedPrefRepository.setLastCount(++count)
-                                },{
-
-                                }))
+                        //locked & off
                     } else {
+                        EventEntity(count, "Unlocked and Screen off", Date().time)
                     }
+                }
+                if (strAction == Intent.ACTION_USER_PRESENT
+                        || strAction == Intent.ACTION_SCREEN_ON) {
+                    eventEntity = if (myKM.inKeyguardRestrictedInputMode()) {
+                        EventEntity(count, "Locked and Screen on", Date().time)
+                    } else {
+                        EventEntity(count, "Unlocked and Screen on", Date().time)
+                    }
+                }
+
+                disposable.add(eventRepository
+                        .save(eventEntity!!)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            sharedPrefRepository.setLastCount(++count)
+                        }, {
+
+                        }))
 
             }
         }
+
 
         applicationContext.registerReceiver(screenOnOffReceiver, theFilter)
     }
