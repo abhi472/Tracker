@@ -2,8 +2,7 @@ package com.abhishek.tracker.ui
 
 import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableField
-import com.abhishek.tracker.data.EventEntity
-import com.abhishek.tracker.repository.Event
+import com.abhishek.tracker.data.room.EventEntity
 import java.util.*
 import javax.inject.Inject
 

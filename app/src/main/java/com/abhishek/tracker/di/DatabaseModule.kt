@@ -2,8 +2,8 @@ package com.abhishek.tracker.di
 
 import android.arch.persistence.room.Room
 import com.abhishek.tracker.TrackerApp
-import com.abhishek.tracker.data.EventDao
-import com.abhishek.tracker.data.TrackerDatabase
+import com.abhishek.tracker.data.room.EventDao
+import com.abhishek.tracker.data.room.TrackerDatabase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

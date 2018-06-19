@@ -1,11 +1,10 @@
 package com.abhishek.tracker.repository
 
 import android.arch.lifecycle.LiveData
-import com.abhishek.tracker.data.EventDao
-import com.abhishek.tracker.data.EventEntity
-import com.abhishek.tracker.data.TrackerDatabase
+import com.abhishek.tracker.data.room.EventDao
+import com.abhishek.tracker.data.room.EventEntity
+import com.abhishek.tracker.data.room.TrackerDatabase
 import io.reactivex.Completable
-import io.reactivex.Single
 import javax.inject.Inject
 import javax.inject.Singleton
 

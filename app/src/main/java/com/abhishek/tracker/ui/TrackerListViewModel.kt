@@ -6,11 +6,8 @@ import android.arch.lifecycle.ViewModel
 import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import com.abhishek.tracker.R
-import com.abhishek.tracker.data.EventEntity
+import com.abhishek.tracker.data.room.EventEntity
 import com.abhishek.tracker.repository.Event
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class TrackerListViewModel @Inject constructor(eventRepository: Event) : ViewModel(),

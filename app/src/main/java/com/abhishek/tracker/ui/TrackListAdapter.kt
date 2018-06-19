@@ -6,9 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.abhishek.tracker.R
-import com.abhishek.tracker.data.EventEntity
+import com.abhishek.tracker.data.room.EventEntity
 import com.abhishek.tracker.databinding.EventCardBinding
-import com.abhishek.tracker.repository.Event
 import javax.inject.Inject
 
 class TrackListAdapter @Inject constructor(var context: Context) : RecyclerView.Adapter<TrackListAdapter.ViewHolder>(){

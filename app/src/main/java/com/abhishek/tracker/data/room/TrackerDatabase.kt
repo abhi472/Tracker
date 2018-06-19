@@ -1,4 +1,4 @@
-package com.abhishek.tracker.data
+package com.abhishek.tracker.data.room
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase

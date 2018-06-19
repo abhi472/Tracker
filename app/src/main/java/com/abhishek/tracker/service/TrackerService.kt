@@ -6,9 +6,9 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.BroadcastReceiver
 import android.content.IntentFilter
-import android.util.Log
-import com.abhishek.tracker.data.EventEntity
+import com.abhishek.tracker.data.room.EventEntity
 import com.abhishek.tracker.repository.Event
+import com.abhishek.tracker.repository.SharedPref
 import dagger.android.DaggerService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -22,10 +22,12 @@ class TrackerService : DaggerService() {
     @Inject
     lateinit var eventRepository: Event
 
+    @Inject
+    lateinit var sharedPrefRepository: SharedPref
+
     val disposable = CompositeDisposable()
 
 
-    var count: Int = 1
 
     override fun onBind(intent: Intent): IBinder? {
         return null
@@ -64,13 +66,14 @@ class TrackerService : DaggerService() {
                         || strAction == Intent.ACTION_SCREEN_ON)
 
                     if (myKM.inKeyguardRestrictedInputMode()) {
+                        var count: Int = sharedPrefRepository.getLastCount()
                         val eventEntity = EventEntity(count, "Locked", Date().time)
                         disposable.add(eventRepository
                                 .save(eventEntity)
                                 .subscribeOn(Schedulers.io())
                                 .observeOn(AndroidSchedulers.mainThread())
                                 .subscribe({
-                                    count++
+                                    sharedPrefRepository.setLastCount(++count)
                                 },{
 
                                 }))
