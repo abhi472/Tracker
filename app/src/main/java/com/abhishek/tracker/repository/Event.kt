@@ -1,6 +1,6 @@
 package com.abhishek.tracker.repository
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import com.abhishek.tracker.data.room.EventEntity
 import io.reactivex.Completable
 

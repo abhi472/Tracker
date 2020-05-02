@@ -1,8 +1,8 @@
 package com.abhishek.tracker.ext
 
-import android.databinding.BindingAdapter
-import android.support.annotation.DrawableRes
-import android.support.v4.content.ContextCompat
+import androidx.databinding.BindingAdapter
+import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import android.view.View
 
 import android.widget.TextView

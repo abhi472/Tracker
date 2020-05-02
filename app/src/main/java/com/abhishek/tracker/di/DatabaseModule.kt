@@ -1,6 +1,6 @@
 package com.abhishek.tracker.di
 
-import android.arch.persistence.room.Room
+import androidx.room.Room
 import com.abhishek.tracker.TrackerApp
 import com.abhishek.tracker.data.room.EventDao
 import com.abhishek.tracker.data.room.TrackerDatabase

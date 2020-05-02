@@ -1,10 +1,10 @@
 package com.abhishek.tracker.ui
 
-import android.arch.lifecycle.LifecycleObserver
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.ViewModel
-import android.databinding.ObservableBoolean
-import android.databinding.ObservableField
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableField
 import com.abhishek.tracker.R
 import com.abhishek.tracker.data.room.EventEntity
 import com.abhishek.tracker.repository.Event
